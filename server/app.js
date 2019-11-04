@@ -76,7 +76,7 @@ http.createServer(function (req, res) {
                     }
                     res.end(JSON.stringify(fullinfo));
                 } else {
-                    res.end();
+                    res.end(JSON.stringify({length: 0, data: []}));
                 }
                 
             break;

@@ -13,7 +13,9 @@ class Menu extends React.Component {
     constructor() {
         super();
         this.state = {
-            showingSearch: false
+            showingSearch: false,
+            searchLength: 0,
+            searchData: []
         };
     }
 
@@ -48,7 +50,10 @@ class Menu extends React.Component {
             }
         }).then(res => res.json())
         .then(o => {
-            console.log(o);
+            this.setState({
+                searchLength: o.length,
+                searchData: o.data
+            })
         })
         .catch(o => console.error(o));
 
@@ -61,6 +66,7 @@ class Menu extends React.Component {
      * @memberof App
     */
     render() {
+        const { searchLength, searchData } = this.state;
         return (
             <header className="menu">
                 <div className="menu-container">
@@ -86,6 +92,16 @@ class Menu extends React.Component {
                     <a href="#" onClick={(e) => this.showSearchContainer(e)}>
                         <i className="material-icons close">close</i>
                     </a>
+                    {searchData.length ? <p>
+                        {`DISPLAYING ${searchData.length} OF ${searchLength} RESULTS`} 
+                    </p> : undefined}
+                    {searchData.map((o, i) =>
+                        <div key={i}>
+                            <img src={o.picture} />
+                            <h1>{o.name.toUpperCase()}</h1>
+                            <h2>{o.about.toUpperCase()}</h2>
+                        </div>
+                    )}
                 </div>
             </header>
         );
