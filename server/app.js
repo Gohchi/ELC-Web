@@ -61,7 +61,7 @@ http.createServer(function (req, res) {
                 res.writeHead(200, {"Content-Type": "application/json"});
                 var rd = data;
                 if(querystring.query){
-                    rd = data.filter(o => ~o.name.toLowerCase().indexOf(querystring.query.toLowerCase()));
+                    rd = data.filter(o => o.isActive && ~o.name.toLowerCase().indexOf(querystring.query.toLowerCase()));
                 }
                 res.end(JSON.stringify(rd));
             break;
@@ -69,7 +69,7 @@ http.createServer(function (req, res) {
                 res.writeHead(200, {"Content-Type": "application/json"});
                 if(querystring.query){
                     var rd = data;
-                    rd = data.filter(o => ~o.name.toLowerCase().indexOf(querystring.query.toLowerCase()));
+                    rd = data.filter(o => o.isActive && ~o.name.toLowerCase().indexOf(querystring.query.toLowerCase()));
                     var fullinfo = {
                         length: rd.length,
                         data: rd.length > 4 ? rd.slice(1,5) : rd
@@ -84,7 +84,6 @@ http.createServer(function (req, res) {
                 res.write("Nothing matches at " + url); // Write out the default response
                 res.end(); //end the response
         }
-        console.log(req.url);
     } else {
         res.write("Response goes in here..."); // Write out the default response
         res.end(); //end the response

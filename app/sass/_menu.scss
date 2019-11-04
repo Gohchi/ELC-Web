@@ -78,7 +78,7 @@ header.menu {
         
         input[type='text'] {
             min-width: 100%;
-            font-size: 36px;
+            font-size: 32px;
             line-height: $lineHeightForSearch;
             border: 1px solid #CCC;
             padding: 0 10px;
@@ -90,6 +90,28 @@ header.menu {
             top: 5px;
             font-size: 36px;
             line-height: $lineHeightForSearch;
+        }
+        
+        .md-card {
+            display: inline-flex;
+            height: 170px;
+            width: 350px;
+            margin: 15px;
+        }
+        .md-details {
+            display: inline-flex;
+            flex-direction: column;
+            width: 75%;
+        }
+        .md-content {
+            flex: 1 0 auto;
+        }
+        .md-cover {
+            width: 25%;
+            margin: 5%;
+        }
+        .md-info {
+            margin: 20px;
         }
     }
 
