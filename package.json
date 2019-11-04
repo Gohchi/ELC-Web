@@ -9,14 +9,14 @@
   },
   "dependencies": {},
   "scripts": {
-    "servers": "NODE_ENV=development gulp watch",
-    "dev-server": "NODE_ENV=development gulp dev_server",
-    "node-server": "NODE_ENV=development nodemon server/app.js",
-    "prod": "NODE_ENV=production gulp prod",
-    "dev-tests": "NODE_ENV=development gulp tests",
-    "image-min": "NODE_ENV=development gulp images",
-    "sass": "NODE_ENV=development gulp sass",
-    "third-party": "NODE_ENV=development gulp vendor"
+    "servers": "SET NODE_ENV=development & gulp watch",
+    "dev-server": "SET NODE_ENV=development & gulp dev_server",
+    "node-server": "SET NODE_ENV=development & nodemon server/app.js",
+    "prod": "SET NODE_ENV=production & gulp prod",
+    "dev-tests": "SET NODE_ENV=development & gulp tests",
+    "image-min": "SET NODE_ENV=development & gulp images",
+    "sass": "SET NODE_ENV=development & gulp sass",
+    "third-party": "SET NODE_ENV=development & gulp vendor"
   },
   "keywords": [
     "Web",
@@ -32,7 +32,7 @@
     "@babel/preset-react": "^7.0.0-beta.36",
     "babel-loader": "8.0.0-beta.0",
     "babel-preset-react": "^6.24.1",
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.7",
     "gulp": "3.9.1",
     "gulp-autoprefixer": "4.0.0",
     "gulp-git": "^2.5.0",
