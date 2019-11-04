@@ -38,7 +38,19 @@ class Menu extends React.Component {
         
         // Start Here
         // ...
-        
+        var url = new URL('http://localhost:3035/api/products/preview');
+
+        url.search = new URLSearchParams({ query: e.target.value }).toString();
+
+        fetch(url, {
+            headers:{
+                "accepts":"application/json"
+            }
+        }).then(res => res.json())
+        .then(o => {
+            console.log(o);
+        })
+        .catch(o => console.error(o));
 
     }
 
@@ -70,7 +82,7 @@ class Menu extends React.Component {
                     </div>
                 </div>
                 <div className={(this.state.showingSearch ? "showing " : "") + "search-container"}>
-                    <input type="text" onChange={(e) => this.onSearch(e)} />
+                    <input type="text" onChange={(e) => this.onSearch(e)} placeholder="ENTER SEARCH TERM"/>
                     <a href="#" onClick={(e) => this.showSearchContainer(e)}>
                         <i className="material-icons close">close</i>
                     </a>

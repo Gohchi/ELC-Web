@@ -35,6 +35,12 @@ const port      = 3035;
 http.createServer(function (req, res) {
     // .. Here you can create your data response in a JSON format
     
+	// Set CORS headers
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Request-Method', '*');
+	res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+    res.setHeader('Access-Control-Allow-Headers', '*');
+    
     if(req.url.match(/^\/api\//)){
         const urlData = req.url.split('?'); // 0: url, 1: querystring
         const url = urlData[0];
