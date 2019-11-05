@@ -17,5 +17,17 @@ section#home {
         max-width: $siteWidth;
         margin: 0 auto;
         color: #FFF;
+
+        .md-selected-card {
+            width: 60%;
+            display: inline-flex;
+            height: 80vh;
+        }
+        .md-selected-cover {
+            opacity: 100%;
+            height: 80%;
+            margin: 30px;
+            width: 170%;
+        }
     }
 }

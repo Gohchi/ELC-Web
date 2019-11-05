@@ -71,7 +71,8 @@ class Menu extends React.Component {
      * @memberof App
     */
     render() {
-        const { searchLength, searchData } = this.state;
+        const { searchLength, searchData, showingSearch } = this.state;
+        const { selectProduct } = this.props;
         return (
             <header className="menu">
                 <div className="menu-container">
@@ -92,7 +93,7 @@ class Menu extends React.Component {
                         </nav>
                     </div>
                 </div>
-                <div className={(this.state.showingSearch ? "showing " : "") + "search-container"}>
+                <div className={(showingSearch ? "showing " : "") + "search-container"}>
                     <input type="text" onChange={(e) => this.onSearch(e)} placeholder="ENTER SEARCH TERM"/>
                     <a href="#" onClick={(e) => this.showSearchContainer(e)}>
                         <i className="material-icons close">close</i>
@@ -104,7 +105,7 @@ class Menu extends React.Component {
                     
                     {searchData.map((o, i) =>
                         <Card className="md-card" key={i}>
-                            <CardActionArea className="md-details">
+                            <CardActionArea className="md-details" onClick={e => {this.showSearchContainer(e); selectProduct(o);}}>
                                 <CardContent className="md-content">
                                     <Typography variant="subtitle2">
                                         {o.name.toUpperCase()}
@@ -120,7 +121,7 @@ class Menu extends React.Component {
                             <CardMedia
                                 className="md-cover"
                                 image={o.picture}
-                                title="Live from space album cover"
+                                title="Click to zoom in"
                             />
                         </Card>
                     )}
