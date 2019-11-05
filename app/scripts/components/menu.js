@@ -136,7 +136,7 @@ class Menu extends React.Component {
                             <CardMedia
                                 className="md-cover"
                                 image={o.picture}
-                                title="Click to zoom in"
+                                // title="Click to zoom in"
                             />
                         </Card>
                     )}

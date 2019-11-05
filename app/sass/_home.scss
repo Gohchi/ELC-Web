@@ -22,12 +22,21 @@ section#home {
             width: 60%;
             display: inline-flex;
             height: 80vh;
+            
+            .md-selected-content {
+                position: relative;
+                
+                .md-selected-tags {
+                    position: absolute;
+                    bottom: 10px;
+                }
+            }
         }
         .md-selected-cover {
             opacity: 100%;
-            height: 80%;
+            height: 90%;
             margin: 30px;
-            width: 170%;
+            width: 200%;
         }
     }
 }

@@ -25,18 +25,18 @@ class Home extends React.Component {
                     {product ?
                     <div>
                     <Card className="md-selected-card">
-                        <CardContent>
+                        <CardContent className="md-selected-content">
                             <Typography variant="h3">
                                 {product.name.toUpperCase()}
                             </Typography>
                             <Typography variant="subtitle1" color="textSecondary">
                                 {product.about.toUpperCase()}
                             </Typography>
-                            <Typography variant="body2" color="textSecondary">
-                                {product.tags.map(t => `#${t} `)}
-                            </Typography>
                             <Typography variant="h5">
                                 $ {product.price}
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" className="md-selected-tags">
+                                {product.tags.map(t => `#${t} `)}
                             </Typography>
                         </CardContent>
                         <CardMedia

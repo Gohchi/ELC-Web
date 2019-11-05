@@ -26,7 +26,7 @@ class App extends React.Component {
     constructor(){
         super();
         this.state = {
-            product: {"_id":"005","isActive":"true","price":"7.00","picture":"/img/products/N0H101_430.png","name":"Color Sustain Pro","about":"Dolor voluptate velit consequat duis. Aute ad officia fugiat esse anim exercitation voluptate excepteur pariatur sit culpa duis qui esse. Labore amet ad eu veniam nostrud minim labore aliquip est sint voluptate nostrud reprehenderit. Ipsum nostrud culpa consequat reprehenderit.","tags":["ojon","treatment"]}
+            product: null //{"_id":"005","isActive":"true","price":"7.00","picture":"/img/products/N0H101_430.png","name":"Color Sustain Pro","about":"Dolor voluptate velit consequat duis. Aute ad officia fugiat esse anim exercitation voluptate excepteur pariatur sit culpa duis qui esse. Labore amet ad eu veniam nostrud minim labore aliquip est sint voluptate nostrud reprehenderit. Ipsum nostrud culpa consequat reprehenderit.","tags":["ojon","treatment"]}
         };
         this.selectProduct = this.selectProduct.bind(this);
     }
