@@ -63,7 +63,11 @@ http.createServer(function (req, res) {
                 if(querystring.query){
                     rd = data.filter(o => o.isActive && ~o.name.toLowerCase().indexOf(querystring.query.toLowerCase()));
                 }
-                res.end(JSON.stringify(rd));
+                var fullinfo = {
+                    length: rd.length,
+                    data: rd
+                }
+                res.end(JSON.stringify(fullinfo));
             break;
             case 'products/preview':
                 res.writeHead(200, {"Content-Type": "application/json"});

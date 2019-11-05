@@ -92,11 +92,15 @@ header.menu {
             line-height: $lineHeightForSearch;
         }
         
+        .md-display-button {
+            position: absolute;
+            right: 25px;
+        }
         .md-card {
             display: inline-flex;
             height: 170px;
             width: 350px;
-            margin: 15px;
+            margin: 10px;
         }
         .md-details {
             display: inline-flex;

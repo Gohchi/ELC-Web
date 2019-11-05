@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import Button from '@material-ui/core/Button';
 
 class Menu extends React.Component {
 
@@ -20,7 +21,8 @@ class Menu extends React.Component {
         this.state = {
             showingSearch: false,
             searchLength: 0,
-            searchData: []
+            searchData: [],
+            searchCache: null
         };
     }
 
@@ -45,9 +47,19 @@ class Menu extends React.Component {
         
         // Start Here
         // ...
-        var url = new URL('http://localhost:3035/api/products/preview');
+        this.callAPI(e.target.value);
+        this.setState({
+            searchCache: e.target.value
+        })
+    }
+    searchAll(){
+        this.callAPI(this.state.searchCache, true);
+    }
+    callAPI(query, all){
+        
+        var url = new URL('http://localhost:3035/api/products' + (all ? '' : '/preview'));
 
-        url.search = new URLSearchParams({ query: e.target.value }).toString();
+        url.search = new URLSearchParams({ query }).toString();
 
         fetch(url, {
             headers:{
@@ -63,7 +75,6 @@ class Menu extends React.Component {
         .catch(o => console.error(o));
 
     }
-
     /**
      * Renders the default app in the window, we have assigned this to an element called root.
      * 
@@ -101,6 +112,10 @@ class Menu extends React.Component {
                     {searchData.length ? 
                     <Typography component="h5" variant="h5" className="md-info">
                         {`DISPLAYING ${searchData.length} OF ${searchLength} RESULTS`} 
+                        
+                        <Button variant="contained" className="md-display-button" onClick={() => this.searchAll()}>
+                            SEE ALL RESULTS
+                        </Button>
                     </Typography> : undefined}
                     
                     {searchData.map((o, i) =>
@@ -125,13 +140,6 @@ class Menu extends React.Component {
                             />
                         </Card>
                     )}
-                    {/* {searchData.map((o, i) =>
-                        <div key={i}>
-                            <img src={o.picture} />
-                            <h1>{o.name.toUpperCase()}</h1>
-                            <h2>{o.about.toUpperCase()}</h2>
-                        </div>
-                    )} */}
                 </div>
             </header>
         );
